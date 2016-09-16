@@ -1,0 +1,160 @@
+@import 'https://fonts.googleapis.com/css?family=Signika:300,600';
+
+$body-font: 'Signika';
+$primary: teal;
+$primary-text: #FEFEFE;
+$secondary: #226096;
+$secondary-text: $primary-text;
+
+$menu-height: 2.5rem;
+$breakpoint: 800px;
+$breakpoint-wide: 1200px;
+$content-width: 600px;
+$content-width-wide: 800px;
+
+body {  
+  font-family: $body-font;
+  font-size: 18px;
+  background: $primary;
+  color: $primary-text;
+  padding-bottom: $menu-height;
+
+  @media (min-width: $breakpoint) {
+    padding-bottom: 0;
+    padding-top: $menu-height;
+  }
+
+  * + * {
+    margin-top: 2em;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary-text;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  section {
+    padding: 1.5em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .container {
+      width: 100%;
+
+      @media (min-width: $breakpoint) {
+        width: $content-width;
+      }
+
+      @media (min-width: $breakpoint-wide) {
+        width: $content-width-wide;
+      }
+
+      p:first-of-type {
+        margin-top: 0.5em; 
+      }
+    }
+
+    & + section {
+      margin-top: 0;
+    }
+
+  }
+}
+
+div.menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  background: $primary-text;
+  width: 100%;
+  height: $menu-height;
+  box-shadow: 0 -3px 0px rgba(0,0,0,0.1);
+
+  a {
+    color: $primary;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: darken($primary, 8%);
+    }
+  }
+
+  ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  @media (min-width: $breakpoint) {
+    box-shadow: 0 3px 0px rgba(0,0,0,0.1);
+    bottom: none;
+    top: 0;
+
+    ul {
+      width: $content-width;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: $breakpoint-wide) {
+    ul {
+      width: $content-width-wide;
+    }
+  }
+}
+
+section.hero {
+  padding: 1em 0 0.6em 0;
+  text-align: center;
+  font-size: 2.5em;
+
+  h1 {
+    text-shadow: 2px 3px 0px rgba(0,0,0,0.2);
+  }
+
+  p {
+    font-size: 0.6em;
+  }
+
+  @media (min-width: $breakpoint) {
+    text-align: left;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

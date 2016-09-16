@@ -1,0 +1,86 @@
+@import 'https://fonts.googleapis.com/css?family=Signika:300,600';
+body {
+  font-family: "Signika";
+  font-size: 18px;
+  background: teal;
+  color: #FEFEFE;
+  padding-bottom: 2.5rem; }
+  @media (min-width: 800px) {
+    body {
+      padding-bottom: 0;
+      padding-top: 2.5rem; } }
+  body * + * {
+    margin-top: 2em; }
+  body a {
+    text-decoration: none;
+    color: #FEFEFE; }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-size: 1.2em;
+    font-weight: bolder; }
+  body p {
+    font-size: 1em; }
+  body section {
+    padding: 1.5em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    body section .container {
+      width: 100%; }
+      @media (min-width: 800px) {
+        body section .container {
+          width: 600px; } }
+      @media (min-width: 1200px) {
+        body section .container {
+          width: 800px; } }
+      body section .container p:first-of-type {
+        margin-top: 0.5em; }
+    body section + section {
+      margin-top: 0; }
+
+div.menu {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  background: #FEFEFE;
+  width: 100%;
+  height: 2.5rem;
+  box-shadow: 0 -3px 0px rgba(0, 0, 0, 0.1); }
+  div.menu a {
+    color: teal;
+    transition: color 0.2s ease; }
+    div.menu a:hover, div.menu a:active, div.menu a:focus {
+      color: #005757; }
+  div.menu ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none; }
+  div.menu li {
+    margin: 0; }
+  @media (min-width: 800px) {
+    div.menu {
+      box-shadow: 0 3px 0px rgba(0, 0, 0, 0.1);
+      bottom: none;
+      top: 0; }
+      div.menu ul {
+        width: 600px;
+        justify-content: space-between; } }
+  @media (min-width: 1200px) {
+    div.menu ul {
+      width: 800px; } }
+
+section.hero {
+  padding: 1em 0 0.6em 0;
+  text-align: center;
+  font-size: 2.5em; }
+  section.hero h1 {
+    text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.2); }
+  section.hero p {
+    font-size: 0.6em; }
+  @media (min-width: 800px) {
+    section.hero {
+      text-align: left; } }
