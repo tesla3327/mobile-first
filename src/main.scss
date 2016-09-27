@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Signika:300,600';
 
 $body-font: 'Signika';
-$primary: #555;
+$primary: #329f9f;
 $primary-text: #FEFEFE;
 $secondary: #226096;
 $secondary-text: $primary-text;
@@ -10,19 +10,22 @@ $secondary-text: $primary-text;
 $menu-height: 0;
 $breakpoint: 800px;
 $breakpoint-wide: 1200px;
-$content-width: 600px;
-$content-width-wide: 800px;
+$content-width: 700px;
+$content-width-wide: 900px;
+
+html,
+body {
+  height: 100%;
+}
 
 body {  
   font-family: $body-font;
   font-size: 18px;
   background: $primary;
   color: $primary-text;
-  padding-bottom: $menu-height;
 
   @media (min-width: $breakpoint) {
-    padding-bottom: 0;
-    padding-top: $menu-height;
+    // padding-top: $menu-height;
   }
 
   * + * {
@@ -30,12 +33,27 @@ body {
   }
 
   a {
-    text-decoration: none;
+    // text-decoration: none;
     color: $primary-text;
+    transition: color 0.15s ease;
+
+    &:hover {
+      color: darken($primary-text, 7%);
+    }
+  }
+
+  a.button {
+    display: inline-block;
+    text-decoration: none;
+    border: solid 1px currentcolor;
+    border-radius: 25px;
+    padding: 0.3em 1.5em;
+    font-size: 1rem;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: bolder;
+    margin-top: 0;
   }
 
   h1 {
@@ -50,8 +68,12 @@ body {
     font-size: 1em;
   }
 
+  strong {
+    text-shadow: 1px 2px 0px rgba(0,0,0,0.2);
+  }
+
   section {
-    padding: 1.5em 1em;
+    padding: 1em 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,22 +89,35 @@ body {
         width: $content-width-wide;
       }
 
-      p:first-of-type {
+      *:first-of-type {
         margin-top: 0.5em; 
       }
     }
 
+    h1 {
+      font-size: 1.7em;
+      text-shadow: 2px 3px 0px rgba(0,0,0,0.15);
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
     & + section {
-      margin-top: 3em;
+      margin-top: 1em;
+    }
+
+    &:last-child {
+      margin-bottom: 3em;
     }
 
   }
 }
 
-div + div,
-div.item:first-child {
-  margin-top: 2em;
-}
+// div + div,
+// div.item:first-child {
+//   margin-top: 2em;
+// }
 
 div.menu {
   position: fixed;
@@ -138,16 +173,22 @@ div.menu {
 }
 
 section.hero {
-  padding: 4em 0;
+  padding: 3em 1em;
   text-align: center;
   font-size: 1.7em;
 
   h1 {
     text-shadow: 2px 3px 0px rgba(0,0,0,0.2);
+    line-height: 1.1em;
   }
 
   @media (min-width: $breakpoint) {
     text-align: left;
+  }
+
+  a.button {
+    font-size: 0.7em;
+    margin-top: 3em;
   }
 }
 
@@ -182,20 +223,91 @@ section.hero {
 #manifesto .item-list {
   display: flex;
   flex-flow: row wrap;
+  margin-top: 0;
 
   .item {
+    margin-top: 2em;
+    margin-right: 1em;
+
     @media (min-width: $breakpoint) {
-      max-width: $content-width / 2;
+      max-width: ($content-width / 2) - 20px;
     }
 
     @media (min-width: $breakpoint-wide) {
-      max-width: ($content-width-wide / 2);
+      max-width: ($content-width-wide / 2) - 20px;
     }
   }
 }
 
+#portfolio {
+  .project + .project {  
+    margin-top: 3em !important;
+  }
+}
 
+.project img,
+img.project {
+  height: auto;
+  width: auto;
+  position: relative;
+  max-width: 100%;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
 
+  @media (min-width: $breakpoint) {
+    box-shadow: 0px 15px 50px rgba(0,0,0,0.4);
+  }
+}
+
+// Only add hover effect if the image is a link
+a > img.project,
+.project a > img {
+  @media (min-width: $breakpoint) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 18px 50px rgba(0,0,0,0.4);
+      filter: grayscale(30%);
+    }
+  }
+}
+
+.hide-desktop {
+  @media (min-width: $breakpoint) {
+    display: none;
+  }
+}
+
+.show-desktop {
+  display: none;
+
+  @media (min-width: $breakpoint) {
+    display: inline-block;
+  }
+}
+
+body#project-view {
+  background: $secondary;
+  color: $primary-text;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  @media (min-width: $breakpoint) {
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+}
+
+body#project-view {`
+  section {
+    margin-top: 0;
+  }
+
+  @media (min-width: $breakpoint) {
+    h1 {
+      margin-top: 2em;
+    }
+  }
+}
 
 
 
