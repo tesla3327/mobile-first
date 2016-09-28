@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Signika:300,600';
+// @import 'https://fonts.googleapis.com/css?family=Signika:300,600';
 
 $body-font: 'Signika';
 $primary: #329f9f;
@@ -243,6 +243,10 @@ section.hero {
   .project + .project {  
     margin-top: 3em !important;
   }
+
+  .project h2 {
+    margin-top: 2em;
+  }
 }
 
 .project img,
@@ -251,18 +255,13 @@ img.project {
   width: auto;
   position: relative;
   max-width: 100%;
+  border-radius: 3px;
   box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
   transition: all 0.2s ease;
 
   @media (min-width: $breakpoint) {
-    box-shadow: 0px 15px 50px rgba(0,0,0,0.4);
-  }
-}
+    box-shadow: 0px 15px 50px rgba(0,0,0,0.4);    
 
-// Only add hover effect if the image is a link
-a > img.project,
-.project a > img {
-  @media (min-width: $breakpoint) {
     &:hover {
       transform: translateY(-3px);
       box-shadow: 0px 18px 50px rgba(0,0,0,0.4);
@@ -297,7 +296,7 @@ body#project-view {
   }
 }
 
-body#project-view {`
+body#project-view {
   section {
     margin-top: 0;
   }
